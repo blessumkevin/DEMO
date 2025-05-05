@@ -7,16 +7,8 @@ public class MySimpleClass {
         }
     }
 
-    public static void logInsecurely(String username, String password) {
-        // PMD Violation: Hardcoded credentials
-        String hardcodedUser = 'admin';
-        String hardcodedPass = 'password123';
-
-        // PMD Violation: Logging sensitive info
-        System.debug('Logging in with: ' + username + ' / ' + password);
-
-        // PMD Violation: Dynamic SOQL (potential injection risk)
-        String query = 'SELECT Id FROM User WHERE Username = \'' + username + '\'';
-        List<User> users = Database.query(query);
+    public static List<User> findUsersByUsername(String username) {
+        // Use parameterized SOQL to prevent injection
+        return [SELECT Id FROM User WHERE Username = :username];
     }
 }
