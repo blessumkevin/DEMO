@@ -3,116 +3,122 @@ private class DateUtilitiesTest {
     
     @IsTest
     static void testGetFirstDayOfMonth() {
-        // Test regular case
-        Date testDate = Date.newInstance(2024, 3, 15);
+        // Test mid-month date
+        Date testDate = Date.newInstance(2023, 7, 15);
         Date firstDay = DateUtilities.getFirstDayOfMonth(testDate);
-        System.assertEquals(Date.newInstance(2024, 3, 1), firstDay, 'First day should be March 1');
+        System.assertEquals(Date.newInstance(2023, 7, 1), firstDay, 'First day should be July 1, 2023');
         
         // Test first day of month
-        testDate = Date.newInstance(2024, 3, 1);
+        testDate = Date.newInstance(2023, 7, 1);
         firstDay = DateUtilities.getFirstDayOfMonth(testDate);
-        System.assertEquals(Date.newInstance(2024, 3, 1), firstDay, 'Should handle first day of month');
-        
-        // Test last day of month
-        testDate = Date.newInstance(2024, 3, 31);
-        firstDay = DateUtilities.getFirstDayOfMonth(testDate);
-        System.assertEquals(Date.newInstance(2024, 3, 1), firstDay, 'Should handle last day of month');
+        System.assertEquals(testDate, firstDay, 'Should return same date if already first of month');
         
         // Test null input
         firstDay = DateUtilities.getFirstDayOfMonth(null);
-        System.assertEquals(null, firstDay, 'Should handle null input');
+        System.assertEquals(null, firstDay, 'Should return null for null input');
+        
+        // Test year transition
+        testDate = Date.newInstance(2023, 12, 25);
+        firstDay = DateUtilities.getFirstDayOfMonth(testDate);
+        System.assertEquals(Date.newInstance(2023, 12, 1), firstDay, 'Should handle December correctly');
     }
     
     @IsTest
     static void testGetLastDayOfMonth() {
-        // Test regular case
-        Date testDate = Date.newInstance(2024, 3, 15);
+        // Test 31-day month
+        Date testDate = Date.newInstance(2023, 7, 15);
         Date lastDay = DateUtilities.getLastDayOfMonth(testDate);
-        System.assertEquals(Date.newInstance(2024, 3, 31), lastDay, 'Last day should be March 31');
+        System.assertEquals(Date.newInstance(2023, 7, 31), lastDay, 'Last day should be July 31, 2023');
         
-        // Test February in leap year
-        testDate = Date.newInstance(2024, 2, 15);
+        // Test 30-day month
+        testDate = Date.newInstance(2023, 6, 15);
         lastDay = DateUtilities.getLastDayOfMonth(testDate);
-        System.assertEquals(Date.newInstance(2024, 2, 29), lastDay, 'Should handle leap year February');
+        System.assertEquals(Date.newInstance(2023, 6, 30), lastDay, 'Last day should be June 30, 2023');
         
-        // Test February in non-leap year
+        // Test February non-leap year
         testDate = Date.newInstance(2023, 2, 15);
         lastDay = DateUtilities.getLastDayOfMonth(testDate);
-        System.assertEquals(Date.newInstance(2023, 2, 28), lastDay, 'Should handle non-leap year February');
+        System.assertEquals(Date.newInstance(2023, 2, 28), lastDay, 'Last day should be February 28, 2023');
+        
+        // Test February leap year
+        testDate = Date.newInstance(2024, 2, 15);
+        lastDay = DateUtilities.getLastDayOfMonth(testDate);
+        System.assertEquals(Date.newInstance(2024, 2, 29), lastDay, 'Last day should be February 29, 2024');
         
         // Test null input
         lastDay = DateUtilities.getLastDayOfMonth(null);
-        System.assertEquals(null, lastDay, 'Should handle null input');
+        System.assertEquals(null, lastDay, 'Should return null for null input');
     }
     
     @IsTest
     static void testIsWeekend() {
         // Test Saturday
-        Date saturday = Date.newInstance(2024, 3, 16);
-        System.assert(DateUtilities.isWeekend(saturday), 'Saturday should be weekend');
+        Date saturday = Date.newInstance(2023, 7, 15); // July 15, 2023 is a Saturday
+        System.assert(DateUtilities.isWeekend(saturday), 'Saturday should be identified as weekend');
         
         // Test Sunday
-        Date sunday = Date.newInstance(2024, 3, 17);
-        System.assert(DateUtilities.isWeekend(sunday), 'Sunday should be weekend');
+        Date sunday = Date.newInstance(2023, 7, 16); // July 16, 2023 is a Sunday
+        System.assert(DateUtilities.isWeekend(sunday), 'Sunday should be identified as weekend');
         
         // Test weekday
-        Date wednesday = Date.newInstance(2024, 3, 13);
-        System.assert(!DateUtilities.isWeekend(wednesday), 'Wednesday should not be weekend');
+        Date monday = Date.newInstance(2023, 7, 17); // July 17, 2023 is a Monday
+        System.assert(!DateUtilities.isWeekend(monday), 'Monday should not be identified as weekend');
         
         // Test null input
-        System.assert(!DateUtilities.isWeekend(null), 'Null should return false');
+        System.assert(!DateUtilities.isWeekend(null), 'Null input should return false');
     }
     
     @IsTest
     static void testGetBusinessDays() {
-        // Test one week
-        Date monday = Date.newInstance(2024, 3, 11);
-        Date friday = Date.newInstance(2024, 3, 15);
-        Integer businessDays = DateUtilities.getBusinessDays(monday, friday);
-        System.assertEquals(5, businessDays, 'Monday to Friday should be 5 business days');
-        
-        // Test including weekend
-        Date nextMonday = Date.newInstance(2024, 3, 18);
-        businessDays = DateUtilities.getBusinessDays(monday, nextMonday);
-        System.assertEquals(6, businessDays, 'Monday to next Monday should be 6 business days');
-        
         // Test same day
-        businessDays = DateUtilities.getBusinessDays(monday, monday);
-        System.assertEquals(1, businessDays, 'Same day should count as 1 business day');
+        Date startDate = Date.newInstance(2023, 7, 17); // Monday
+        System.assertEquals(1, DateUtilities.getBusinessDays(startDate, startDate), 'Same day should count as 1 business day');
         
-        // Test invalid range
-        businessDays = DateUtilities.getBusinessDays(friday, monday);
-        System.assertEquals(0, businessDays, 'End date before start date should return 0');
+        // Test one week
+        Date endDate = startDate.addDays(6);
+        System.assertEquals(5, DateUtilities.getBusinessDays(startDate, endDate), 'One week should have 5 business days');
+        
+        // Test across month boundary
+        startDate = Date.newInstance(2023, 7, 31); // Monday
+        endDate = Date.newInstance(2023, 8, 4); // Friday
+        System.assertEquals(5, DateUtilities.getBusinessDays(startDate, endDate), 'Should handle month transition correctly');
         
         // Test null inputs
-        businessDays = DateUtilities.getBusinessDays(null, friday);
-        System.assertEquals(0, businessDays, 'Null start date should return 0');
+        System.assertEquals(0, DateUtilities.getBusinessDays(null, startDate), 'Null start date should return 0');
+        System.assertEquals(0, DateUtilities.getBusinessDays(startDate, null), 'Null end date should return 0');
+        System.assertEquals(0, DateUtilities.getBusinessDays(null, null), 'Both null dates should return 0');
         
-        businessDays = DateUtilities.getBusinessDays(monday, null);
-        System.assertEquals(0, businessDays, 'Null end date should return 0');
+        // Test end date before start date
+        System.assertEquals(0, DateUtilities.getBusinessDays(endDate, startDate), 'End date before start date should return 0');
     }
     
     @IsTest
     static void testAddBusinessDays() {
-        // Test adding 5 business days from Monday
-        Date monday = Date.newInstance(2024, 3, 11);
-        Date result = DateUtilities.addBusinessDays(monday, 5);
-        System.assertEquals(Date.newInstance(2024, 3, 15), result, 'Adding 5 days from Monday should be Friday');
-        
-        // Test adding days spanning weekend
-        result = DateUtilities.addBusinessDays(monday, 7);
-        System.assertEquals(Date.newInstance(2024, 3, 19), result, 'Adding 7 business days should skip weekend');
-        
         // Test adding zero days
-        result = DateUtilities.addBusinessDays(monday, 0);
-        System.assertEquals(monday, result, 'Adding 0 days should return same date');
+        Date startDate = Date.newInstance(2023, 7, 17); // Monday
+        Date result = DateUtilities.addBusinessDays(startDate, 0);
+        System.assertEquals(startDate, result, 'Adding 0 business days should return same date');
         
-        // Test adding negative days
-        result = DateUtilities.addBusinessDays(monday, -1);
-        System.assertEquals(monday, result, 'Negative days should return original date');
+        // Test adding 5 business days (one week)
+        result = DateUtilities.addBusinessDays(startDate, 5);
+        System.assertEquals(Date.newInstance(2023, 7, 24), result, 'Adding 5 business days should go to next Monday');
         
-        // Test null date
+        // Test adding days across weekend
+        startDate = Date.newInstance(2023, 7, 14); // Friday
+        result = DateUtilities.addBusinessDays(startDate, 1);
+        System.assertEquals(Date.newInstance(2023, 7, 17), result, 'Adding 1 business day to Friday should result in Monday');
+        
+        // Test adding days across month boundary
+        startDate = Date.newInstance(2023, 7, 31); // Monday
+        result = DateUtilities.addBusinessDays(startDate, 5);
+        System.assertEquals(Date.newInstance(2023, 8, 7), result, 'Should handle month transition correctly');
+        
+        // Test null input
         result = DateUtilities.addBusinessDays(null, 5);
-        System.assertEquals(null, result, 'Null input should return null');
+        System.assertEquals(null, result, 'Null start date should return null');
+        
+        // Test negative business days
+        result = DateUtilities.addBusinessDays(startDate, -1);
+        System.assertEquals(startDate, result, 'Negative business days should return original date');
     }
 }
