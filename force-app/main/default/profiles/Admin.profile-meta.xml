@@ -9,11 +9,19 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Housing_Applicant__c.Veteran__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Mobile_Device__c.Operating_System__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
         <layout>Flight__c-Flight Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Housing_Applicant__c-Housing Applicant Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Mobile_Device__c-Mobile Device Layout</layout>
@@ -31,6 +39,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Flight__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Housing_Applicant__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
