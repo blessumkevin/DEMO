@@ -1,9 +1,11 @@
 /**
+ * @description
  * Utility class for setting default values on Account records.
  */
 public class AccountAutomations {
     
     /**
+     * @description
      * Sets a default description on the Account if it is currently null.
      *
      * @param a The Account record to update.
@@ -19,6 +21,7 @@ public class AccountAutomations {
     }
     
     /**
+     * @description
      * Sets a default billing address on the Account.
      *
      * @param a The Account record to update.
@@ -33,6 +36,7 @@ public class AccountAutomations {
     }
     
     /**
+     * @description
      * Sets a default shipping address on the Account.
      *
      * @param a The Account record to update.
@@ -47,6 +51,7 @@ public class AccountAutomations {
     }
     
     /**
+     * @description
      * Sets a default phone number on the Account.
      *
      * @param a The Account record to update.
@@ -58,6 +63,7 @@ public class AccountAutomations {
     }
     
     /**
+     * @description
      * Sets a default website URL on the Account.
      *
      * @param a The Account record to update.
