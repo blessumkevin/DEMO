@@ -27,6 +27,10 @@
                 <behavior>Edit</behavior>
                 <field>Medicare_Provider_ID__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Internet_Speed_mbps__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
