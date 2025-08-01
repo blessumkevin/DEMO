@@ -35,6 +35,10 @@
                 <behavior>Edit</behavior>
                 <field>KitchenAid_Customer__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Hazardous_Waste__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
