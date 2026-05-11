@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Flight_Destination_restrictions</fullName>
+    <active>true</active>
+    <description>This flight cannot have a flight to and from the same place</description>
+    <errorConditionFormula>Destination__c  &lt;&gt; &quot;Disneyland&quot;</errorConditionFormula>
+    <errorMessage>This flight&apos;s origin and destination are identical. Please fix the proper value before saving.</errorMessage>
+</ValidationRule>
