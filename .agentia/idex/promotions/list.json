@@ -1,0 +1,95 @@
+{
+  "fetchedAt": "2026-09-30T05:27:17.236Z",
+  "payload": {
+    "includeQualityGates": false,
+    "other": {
+      "hasMore": false,
+      "items": [
+        {
+          "apexTestLevel": "No Test Run",
+          "createdBy": "Kevin Blessum",
+          "createdDate": "2026-05-07T15:47:48.000+0000",
+          "destinationEnvironment": "QA-AI",
+          "id": "a17al0000A2ryWfAQI",
+          "includedMetadata": [],
+          "isBackPromotion": false,
+          "lastModifiedDate": "2026-05-07T15:49:05.000+0000",
+          "name": "P00165",
+          "pipeline": "Agentia Pipeline",
+          "project": "Agentia Project",
+          "sourceEnvironment": "Dev2-AI",
+          "status": "Merge Conflict",
+          "userStories": []
+        },
+        {
+          "apexTestLevel": "No Test Run",
+          "createdBy": "Kevin Blessum",
+          "createdDate": "2026-04-10T13:21:01.000+0000",
+          "destinationEnvironment": "QA-AI",
+          "id": "a17al00009ro6jIAAQ",
+          "includedMetadata": [],
+          "isBackPromotion": false,
+          "lastModifiedDate": "2026-04-10T13:21:49.000+0000",
+          "name": "P00159",
+          "pipeline": "Agentia Pipeline",
+          "project": "Agentia Project",
+          "sourceEnvironment": "Dev2-AI",
+          "status": "Merge Conflict",
+          "userStories": []
+        },
+        {
+          "apexTestLevel": "No Test Run",
+          "createdBy": "Kevin Blessum",
+          "createdDate": "2026-04-10T01:35:39.000+0000",
+          "destinationEnvironment": "QA-AI",
+          "id": "a17al00009riaSGAAY",
+          "includedMetadata": [],
+          "isBackPromotion": false,
+          "lastModifiedDate": "2026-04-10T01:36:31.000+0000",
+          "name": "P00157",
+          "pipeline": "Agentia Pipeline",
+          "project": "Agentia Project",
+          "sourceEnvironment": "Dev2-AI",
+          "status": "Merge Conflict",
+          "userStories": []
+        },
+        {
+          "apexTestLevel": "No Test Run",
+          "createdBy": "Kevin Blessum",
+          "createdDate": "2025-11-11T16:57:22.000+0000",
+          "destinationEnvironment": "INT",
+          "id": "a17fL00002NDfwAQAT",
+          "includedMetadata": [],
+          "isBackPromotion": false,
+          "lastModifiedDate": "2025-11-11T16:58:14.000+0000",
+          "name": "P00129",
+          "pipeline": "Copado Pipeline",
+          "project": "Copado Project",
+          "sourceEnvironment": "Dev1",
+          "status": "Merge Conflict",
+          "userStories": []
+        },
+        {
+          "apexTestLevel": "No Test Run",
+          "createdBy": "Kevin Blessum",
+          "createdDate": "2025-07-03T14:37:39.000+0000",
+          "destinationEnvironment": "INT",
+          "id": "a17fL00001sDhilQAC",
+          "includedMetadata": [],
+          "isBackPromotion": false,
+          "lastModifiedDate": "2025-07-03T14:38:25.000+0000",
+          "name": "P00031",
+          "pipeline": "Copado Pipeline",
+          "project": "Copado Project",
+          "sourceEnvironment": "Dev2",
+          "status": "Merge Conflict",
+          "userStories": []
+        }
+      ],
+      "loadedPageCount": 1,
+      "totalRecords": 5
+    }
+  },
+  "queryKey": "{\"section\":\"promotions\",\"settings\":{\"cacheTtlHours\":24,\"createdById\":\"\",\"createdByName\":\"\",\"destinationEnvironmentId\":\"\",\"destinationEnvironmentName\":\"\",\"includeQualityGates\":false,\"isBackPromotion\":\"any\",\"limit\":50,\"name\":\"\",\"pipelineId\":\"\",\"pipelineName\":\"\",\"projectId\":\"\",\"projectName\":\"\",\"sourceEnvironmentId\":\"\",\"sourceEnvironmentName\":\"\",\"status\":\"Merge Conflict\"}}",
+  "version": 2
+}
