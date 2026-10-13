@@ -1,0 +1,77 @@
+{
+  "fetchedAt": "2026-09-30T05:27:16.901Z",
+  "items": [
+    {
+      "active": true,
+      "createdBy": "Kevin Blessum",
+      "createdDate": "2026-05-11T17:07:12.000+0000",
+      "format": "v2",
+      "id": "a0Ual00000GLefZEAT",
+      "lastModified": "2026-09-10T23:19:07.000+0000",
+      "mainObject": "Pricebook2",
+      "name": "1- SBQQ Pricebook (External)",
+      "sourceEnvironmentId": "a0cfL000000NpzVQAS",
+      "sourceOrgId": "a11fL0000017i29QAA",
+      "sourceOrgName": "Dev1",
+      "status": "Active"
+    },
+    {
+      "active": true,
+      "createdBy": "Kevin Blessum",
+      "createdDate": "2025-07-03T17:43:24.000+0000",
+      "format": "legacy",
+      "id": "a0UfL000001wkmfUAA",
+      "lastModified": "2025-07-03T17:44:56.000+0000",
+      "mainObject": "Product2",
+      "name": "10- Products (With Product Features And Product Options)",
+      "sourceEnvironmentId": "a0cfL000000L4ztQAC",
+      "sourceOrgId": "a11fL000000wAtRQAU",
+      "sourceOrgName": "Production",
+      "status": "Active"
+    },
+    {
+      "active": false,
+      "createdBy": "Kevin Blessum",
+      "createdDate": "2026-09-10T23:16:28.000+0000",
+      "format": "v2",
+      "id": "a0Ual00000IrbgbEAB",
+      "lastModified": "2026-09-10T23:17:06.000+0000",
+      "mainObject": "Account",
+      "name": "Accounts (With Opps, Contacts, And Cases)",
+      "sourceEnvironmentId": "a0cfL000000L4ztQAC",
+      "sourceOrgId": "a11fL000000wAtRQAU",
+      "sourceOrgName": "Production",
+      "status": "Inactive"
+    },
+    {
+      "active": true,
+      "createdBy": "Kevin Blessum",
+      "createdDate": "2026-05-11T17:07:10.000+0000",
+      "format": "legacy",
+      "id": "a0Ual00000GLedxEAD",
+      "lastModified": "2026-09-10T22:17:47.000+0000",
+      "mainObject": "PricebookEntry",
+      "name": "SBQQ Price Book Entry Template",
+      "sourceEnvironmentId": "a0cfL000000NpzVQAS",
+      "sourceOrgId": "a11fL0000017i29QAA",
+      "sourceOrgName": "Dev1",
+      "status": "Active"
+    },
+    {
+      "active": true,
+      "createdBy": "Kevin Blessum",
+      "createdDate": "2026-05-11T17:07:10.000+0000",
+      "format": "legacy",
+      "id": "a0Ual00000GLecLEAT",
+      "lastModified": "2026-05-11T17:21:20.000+0000",
+      "mainObject": "Product2",
+      "name": "SBQQ Product Template",
+      "sourceEnvironmentId": "a0cfL000000NpzVQAS",
+      "sourceOrgId": "a11fL0000017i29QAA",
+      "sourceOrgName": "Dev1",
+      "status": "Active"
+    }
+  ],
+  "activeState": "all",
+  "version": 3
+}
